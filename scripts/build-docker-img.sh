@@ -1,1 +1,1 @@
-docker build  -t cfcloudops/azure-blobstore-concourse-resource . && docker push cfcloudops/azure-blobstore-concourse-resource
+docker build  -t interupt19/azure-blobstore-concourse-resource . && docker push interupt19/azure-blobstore-concourse-resource

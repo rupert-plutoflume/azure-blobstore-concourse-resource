@@ -24,7 +24,7 @@ src_file = src_files.first
 @storage_access_key = source["storage_access_key"]
 @container = source["container"]
 @environment = source["environment"]
-@regexp = source["regexp"]
+# @regexp = source["regexp"]
 
 if @storage_access_key.nil?
   STDERR.puts "PUT on public Azure blobstore container is not permited. Please provide storage_access_key."
@@ -33,12 +33,14 @@ end
 
 check_source
 
-if @regexp.include?("/")
-  dst_dir = File.dirname(source["regexp"])
-  dst_path = File.join(dst_dir, File.basename(src_file))
-else
-  dst_path = File.basename(src_file)
-end
+# if @regexp.include?("/")
+#  dst_dir = File.dirname(source["regexp"])
+#  dst_path = File.join(dst_dir, File.basename(src_file))
+# else
+#  dst_path = File.basename(src_file)
+# end
+
+dst_path = File.basename(src_file)
 
 response = azure_cli("upload --quiet --container #{@container} --blob #{dst_path} --file #{src_file}")
 metadata = []

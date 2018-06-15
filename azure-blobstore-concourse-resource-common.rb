@@ -11,10 +11,10 @@ def check_source
     exit 1
   end
 
-  if @regexp.nil?
-    STDERR.puts "regexp is missing in source"
-    exit 1
-  end
+  # if @regexp.nil?
+  #   STDERR.puts "regexp is missing in source"
+  #   exit 1
+  # end
 
   case @environment
   when  "AzureCloud" , nil
